@@ -1,0 +1,27 @@
+
+
+* {
+    text-align: center;
+ }
+ 
+ img{  
+    width = 550px;
+    height: 500px;
+    padding: 0rem;
+}
+.h1{
+    color: white;
+    text-align: center;
+}
+
+ 
+  /* contact us page */
+ 
+/* .container{ 
+    background-color: gray;
+}
+*/
+.container-my-4
+{
+    background-color: greenyellow;
+}
