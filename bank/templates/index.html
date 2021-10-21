@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% load static %}
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -40,10 +41,12 @@
         padding: 0;
         }
     </style>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="{%static 'css/index.css' %}">
+    <link rel="stylesheet" href="{%static 'css/footer.css' %}">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  {% load static %}
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"> Welcome to GRIP Bank</a>
         <button
@@ -60,36 +63,36 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"> Home </a>
+              <a class="nav-link active" aria-current="page" href="/"> Home </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/about.html"> About </a>
+              <a class="nav-link" href="/aboutUs/"> About </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="./contact.html"> Contact us </a>
+              <a class="nav-link" href="/contactUs/"> Contact us </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="./Make_transaction.html"
-                >Make Transactions</a
+              <a class="nav-link" href="/viewUsers/"
+                >View Users</a
               >
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="./Create_Users.html"> Create User</a>
+              <a class="nav-link" href="/createUser/"> Create User</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="./Transactions_history.html"> View_all_details </a>
+              <a class="nav-link" href="/transactionHistory/"> Transaction History </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div class="container-fluid background1">
+    <div class="container-fluid background1" >
             
     </div>
 
@@ -99,10 +102,10 @@
       <!-- Three columns of text below the carousel -->
       <div class="row d-flex justify-content-around">
         <div class="col-md-3">
-          <img src="1.jpg" class="d-block w-100" alt="..." />
+          <img src="{%static 'images/1.jpg' %}" class="d-block w-100" alt="..." />
           
           <p>
-            <a class="btn btn-info" href="./Create_Users.html"
+            <a class="btn btn-info" href="createUser/"
               >Create Users »</a
             >
           </p>
@@ -110,22 +113,22 @@
         <!-- /.col-lg-4 -->
 
         <div class="col-md-3">
-          <img src="2.jpg" class="d-block w-100" alt="..." />
+          <img src="{%static 'images/2.jpg' %}" class="d-block w-100" alt="..." />
           
           <p>
-            <a class="btn btn-primary" href="Make_transaction.html"
-              >Do Transaction »</a
+            <a class="btn btn-primary" href="/viewUsers/"
+              >Make Transaction »</a
             >
           </p>
         </div>
         <!-- /.col-lg-4 -->
 
         <div class="col-md-3">
-          <img src="3.jpg" class="d-block w-100" alt="..." />
+          <img src="{%static 'images/3.jpg' %}" class="d-block w-100" alt="..." />
           
           <p>
-            <a class="btn btn-success" href="./Transactions_history.html"
-              >View details»</a
+            <a class="btn btn-success" href="/transactionHistory/"
+              >Transaction History»</a
             >
           </p>
         </div>
@@ -138,9 +141,65 @@
 
     <!-- /END THE FEATURETTES -->
 
-    <footer class="container" style="margin: 10px">
-      <p class="float-right"><a href="#">Back to top</a></p>
-      <p>© 2020 Grip, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-    </footer>
+ <footer>
+    <div class=" container-fluid  footer mt-5">
+      <div class="row w-100 d-flex  flex justify-content-center">
+        <div class="col-md-3 col-6 d-flex  flex-column justify-content-center">
+              <div>
+                <h2 style="color: yellow;">GRIP-BANK</h2>
+                <p>icoder123@gmail.com</p>
+                <hr>
+              </div>
+              <div>
+                <br/>
+                <div  >
+                <ul class="social-media-icons">
+                <li><i class="fab fa-lg fa-whatsapp"></i></li>
+                <li><i class="fab fa-lg fa-instagram"></i></li>
+                <li><i class="fab fa-lg fa-facebook"></i></li>
+                <li><i class="fab fa-lg fa-youtube"></i></li>
+                </ul>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-2 col-6 d-flex justify-content-center">
+            <div>
+          <h3 >Category</h3>
+          <ul class="topics-category-list common-property">
+            <li>Programming</li>
+            <li>Coding</li>
+            <li>Designing</li>
+            <li> Technology</li>
+          </ul>
+        </div>
+        </div>
+        <div class="col-md-2 col-6 d-flex justify-content-center ">
+            <div>
+          <h3>Contribute</h3>
+          <ul class="contribute-list common-property">
+              <li>Write An Article</li>
+              <li>Write Interview Experiance</li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+        </div>
+    </div>
+        <div class="col-md-2 col-6 d-flex justify-content-center">
+            <div>
+            <h3 >Company</h3>
+
+            <ul class="company common-property">
+                <li>About Us</li>
+                <li> Contact Us</li>
+                <li>Home</li>
+                <li>Login</li>
+                <li> Career</li>
+            </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>

@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding:0;
+}
+body{
+    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("contact.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.col-md-6{
+    background-color: white;
+    border-radius: 30px;
+    padding: 50px;
+    
+}
+.row{
+    margin-top: 60px;
+}
+h5{
+    text-align: center;
+}
+h3{
+    text-align: center;
+    margin-bottom: 20px;
+}
+button{
+    margin-left: 40%;
+}

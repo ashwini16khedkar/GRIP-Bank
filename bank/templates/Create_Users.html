@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+     {% load static %}
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,14 +14,15 @@
   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
   crossorigin="anonymous"
 />
-<link rel="stylesheet" href="footer.css">
+<link rel="stylesheet" href="{%static 'css/footer.css' %}">
   </head>
   
 
   <body style="background: rgb(243, 228, 190)" ;>
+   {% load static %}
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"> Welcome to GRIP </a>
+        <a class="navbar-brand" href="#"> Welcome to GRIP Bank</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -35,29 +37,29 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"> Home </a>
+              <a class="nav-link active" aria-current="page" href="/"> Home </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/about.html"> About </a>
+              <a class="nav-link" href="/aboutUs/"> About </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="./contact.html"> Contact us </a>
+              <a class="nav-link" href="/contactUs/"> Contact us </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="./Make_transaction.html"
-                >Make Transactions</a
+              <a class="nav-link" href="/viewUsers/"
+                >View Users</a
               >
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="./Create_Users.html"> Create User</a>
+              <a class="nav-link" href="/createUser/"> Create User</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="./Transactions_history.html"> View_Users </a>
+              <a class="nav-link" href="/transactionHistory/"> Transaction History </a>
             </li>
           </ul>
         </div>
@@ -69,24 +71,24 @@
 
     <div class="container create_new_user" style="min-height:86vh;">
       <div class="row d-flex justify-content-center outer-row">
-        <div class="col-md-6 " style="margin-top: 100px;">
+        <div class="col-md-6 " style="margin-top: 100px; background-color:white; border-radius:25px; padding:30px;">
           <div class="row"></div>
           <h3 class="heading text-center mb-4 mt-4">Create New User</h3>
-          <form action="" class="w-100" method="POST" onsubmit="formValidation()">
+          <form action="/createUser/" class="w-100" method="POST" onsubmit="formValidation()"> {% csrf_token %}
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Name</label>
-              <input type="text" class="form-control" id="exampleInputPassword1" required>
+              <input type="text" name="name" class="form-control" id="exampleInputPassword1" required>
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+              <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Bank Balance</label>
-              <input type="number" class="form-control" id="amount" required>
+              <input type="number" name="amount" class="form-control" id="amount" required>
             </div>
             
-            <button type="submit" class="btn btn-primary" style="margin-left: 40%;">Submit</button>
+            <button type="submit" class="btn btn-success" style="margin-left: 40%;">Create</button>
           </form>
         </div>
       </div>

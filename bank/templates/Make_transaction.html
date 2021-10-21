@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transfer Money!!</title>
+       <link rel="stylesheet" href="style.css" />
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+    crossorigin="anonymous"
+  />
+      <link rel="stylesheet" href="{%static 'css/footer.css' %}">
+  </head>
+
+  <body style="background-color:rgb(175, 175, 154);" >
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"> Welcome to GRIP Bank</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/"> Home </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/aboutUs/"> About </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/contactUs/"> Contact us </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/viewUsers/"
+                >View Users</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/createUser/"> Create User</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/transactionHistory/"> Transaction History </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container" style="margin-top: 50px">
+      <div class="row">
+        <div
+          class="col-md-6 m-auto box"
+          style="
+            
+            border-radius: 20px;
+            min-height: 400px;
+            background-color:white;
+          "
+        >
+          <div>
+            <h2 style="text-align: center; color:black; margin: 10px">
+              Account Details
+            </h2>
+          </div>
+          <div>
+            <h5 style="text-align: center">
+              Name : {{user.name}}</h3>
+          </div>
+          <div>
+            <h5 style="text-align: center; margin-bottom: 100px">
+              Balance : <span id="balance">{{user.bank_balance}}</span>
+            </h5>
+          </div>
+          <form class="w-100" action="/makeTransaction/{{user.id}}/" onsubmit="return formValidation()" method="POST">{% csrf_token %}
+
+            <div class="form-group w-100">
+              <select id="reciver" name="receiver" class="form-control">
+                {% for i in users %}
+                <option value="{{i.id}}" name="">{{i.name}}</option>
+                {% endfor %}
+              </select>
+
+            </div>
+            <div class="form-group w-100">
+              <label for="amount" class="col-sm-2 col-form-label"
+                >Amount</label
+              >
+              <div class="col-md-12">
+                <input
+                  type="number"
+                  name="amount"
+                  class="form-control"
+                  id="amount"
+                  placeholder="Enter amount "
+                  required
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-info m-5 float-right clearfix"
+              value="submit"
+            >
+              Transfer
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+ <footer>
+    <div class=" container-fluid  footer mt-5">
+      <div class="row w-100 d-flex  flex justify-content-center">
+        <div class="col-md-3 col-6 d-flex  flex-column justify-content-center">
+              <div>
+                <h2 style="color: yellow;">GRIP-BANK</h2>
+                <p>icoder123@gmail.com</p>
+                <hr>
+              </div>
+              <div>
+                <br/>
+                <div  >
+                <ul class="social-media-icons">
+                <li><i class="fab fa-lg fa-whatsapp"></i></li>
+                <li><i class="fab fa-lg fa-instagram"></i></li>
+                <li><i class="fab fa-lg fa-facebook"></i></li>
+                <li><i class="fab fa-lg fa-youtube"></i></li>
+                </ul>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-2 col-6 d-flex justify-content-center">
+            <div>
+          <h3 >Category</h3>
+          <ul class="topics-category-list common-property">
+            <li>Programming</li>
+            <li>Coding</li>
+            <li>Designing</li>
+            <li> Technology</li>
+          </ul>
+        </div>
+        </div>
+        <div class="col-md-2 col-6 d-flex justify-content-center ">
+            <div>
+          <h3>Contribute</h3>
+          <ul class="contribute-list common-property">
+              <li>Write An Article</li>
+              <li>Write Interview Experiance</li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+        </div>
+    </div>
+        <div class="col-md-2 col-6 d-flex justify-content-center">
+            <div>
+            <h3 >Company</h3>
+
+            <ul class="company common-property">
+                <li>About Us</li>
+                <li> Contact Us</li>
+                <li>Home</li>
+                <li>Login</li>
+                <li> Career</li>
+            </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  function formValidation(){
+    var a=document.getElementById('amount').value;
+    var b=document.getElementById('balance').innerHTML;
+    var x=parseInt(a);
+    var y=parseInt(b);
+
+    if(x>y){
+      alert("Your account not have sufficient balance");
+      return false;
+    }
+    else if(x==0){
+      alert('amount zero can not transfer  ');
+      return false;
+    }
+    else{
+      alert('amount is transfer successfully');
+      return true;
+    }
+  }
+</script>
+  </body>
+</html>
